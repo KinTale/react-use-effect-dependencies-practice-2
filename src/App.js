@@ -4,14 +4,17 @@ import SelectTypeForm from "./components/SelectTypeForm";
 import "./styles.css";
 
 export default function App() {
-  const [dataType, setDataType] = useState("");
+  const [dataType, setDataType] = useState("people");
 
   const [data, setData] = useState(null);
 
   console.log({ data });
+  console.log('render')
+
 
   useEffect(() => {
-    if (!dataType) return;
+    if (dataType === '') return;
+
 
     fetch(`https://swapi.dev/api/${dataType}/`)
       .then((res) => res.json())
